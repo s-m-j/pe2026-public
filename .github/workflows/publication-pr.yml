@@ -21,7 +21,7 @@ jobs:
           EXISTING_PR=$(gh pr list \
             --repo "${{ github.repository }}" \
             --head "publish/materials" \
-            --base "main" \
+            --base "master" \
             --state open \
             --json number \
             --jq '.[0].number // empty')
@@ -32,7 +32,7 @@ jobs:
             gh pr create \
               --repo "${{ github.repository }}" \
               --head "publish/materials" \
-              --base "main" \
+              --base "master" \
               --title "Publish course materials" \
               --body "Automated publication from the private course repository."
           fi
